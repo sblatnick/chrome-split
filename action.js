@@ -7,24 +7,6 @@ function target_links() {
     $("a", frames[0].document).attr({target: "right-frame"});
   }
   setTimeout(target_links, 2000);
-
-  /*
-  $("a", frames[0].document).attr({target: "right-frame"})
-    .on('ajaxComplete',function() {
-      $("a", frames[0].document).attr({target: "right-frame"});
-    });
-  */
-  /*
-  MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
-  var observer = new MutationObserver(function(mutations, observer) {
-    console.log(mutations, observer);
-    $("a", $(mutations.target)).attr({target: "right-frame"});
-  });
-  observer.observe(frames[0].document, {
-    subtree: true,
-    attributes: true
-  });
-  */
 }
 
 function main()
