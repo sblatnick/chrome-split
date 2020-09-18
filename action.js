@@ -4,7 +4,8 @@ var settings = {};
 
 function main()
 {
-  console.log(document.body);
+  console.log(document);
+  console.log($);
 }
 
 chrome.storage.sync.get('settings', function(data)
@@ -14,3 +15,9 @@ chrome.storage.sync.get('settings', function(data)
 });
 
 
+/*
+   <frameset cols = "25%,75%">
+      <frame name="left" src="" />
+      <frame name="right" src="" />
+   </frameset>
+*/
