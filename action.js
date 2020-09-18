@@ -30,6 +30,7 @@ function main()
 chrome.storage.sync.get('settings', function(data)
 {
   settings = data.settings;
+  console.log("Loaded settings:");
   console.log(settings);
   main();
 });
