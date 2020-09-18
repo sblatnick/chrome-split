@@ -2,6 +2,15 @@
 
 var settings = {};
 
+function notify(msg) {
+  chrome.notifications.create('chrome-split', {
+    type: 'basic',
+    iconUrl: 'images/icon128.png',
+    title: 'Notice',
+    message: msg
+  }, function(notificationId) {});
+}
+
 function target_links() {
   if(frames[0].document) {
     $("a", frames[0].document).attr({target: "right-frame"});
@@ -21,5 +30,6 @@ function main()
 chrome.storage.sync.get('settings', function(data)
 {
   settings = data.settings;
+  console.log(settings);
   main();
 });
