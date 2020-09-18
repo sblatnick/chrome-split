@@ -2,12 +2,12 @@
 
 var settings = {
   left: {
-    width: 300
+    width: 50
   }
 };
 
 chrome.runtime.onInstalled.addListener(function() {
-  chrome.storage.sync.set({settings: settings}, function() {
+  chrome.storage.sync.set(settings, function() {
     console.log('Stored default settings');
   });
 });
