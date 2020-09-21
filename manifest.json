@@ -2,7 +2,7 @@
   "name": "Chrome Split Browser Window",
   "version": "1.0",
   "description": "All links target the split panel",
-  "permissions": ["activeTab", "declarativeContent", "storage", "notifications"],
+  "permissions": ["activeTab", "declarativeContent", "storage", "notifications", "webRequest", "webRequestBlocking", "<all_urls>"],
   "options_page": "options.html",
   "background": {
     "scripts": ["background.js"]
