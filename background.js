@@ -19,22 +19,23 @@ chrome.browserAction.onClicked.addListener(function(tab) {
   });
 });
 
-//FIXME
 chrome.webRequest.onHeadersReceived.addListener(
   info => {
     const headers = info.responseHeaders;
-    console.log(headers);
+    //console.log(headers);
     for (let i=headers.length-1; i>=0; --i) {
       let header = headers[i].name.toLowerCase();
-      console.log("Header: {" + header + ": " + headers[i].value + "}");
+      //console.log("Header: {" + header + ": " + headers[i].value + "}");
       if(header === "x-frame-options" || header === "frame-options") {
-        console.log("Removed");
-        headers.splice(i, 1); //Remove
+        console.log("Removed: " + header);
+        headers.splice(i, 1);
       }
       if(header === "content-security-policy") {
-        console.log("Edited");
-        headers[i].value = headers[i].value.replace("frame-ancestors", "frame-ancestors data:");
-        headers[i].value = headers[i].value.replace("frame-src", "frame-src data:");
+        let old = headers[i].value;
+        let edited = "frame-ancestors https:" //FIXME: https hardcoded
+        console.log("Edited: " + old + " -> " + edited);
+        headers[i].value = edited;
+        //headers[i].value = headers[i].value.replace("frame-src", "frame-src https:");
       }
     }
     return {responseHeaders: headers};
