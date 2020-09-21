@@ -8,8 +8,7 @@ var settings = {
 
 chrome.runtime.onInstalled.addListener(function() {
   chrome.storage.sync.set({"settings": settings}, function() {
-    console.log('Stored default settings:');
-    console.log(settings);
+    console.log('Stored default settings:', settings);
   });
 });
 

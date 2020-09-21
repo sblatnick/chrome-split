@@ -23,14 +23,15 @@ function main()
   var left = settings.left.width;
   var right = 100 - left;
   var cols = left +'%,' + right + '%';
+  var title = document.title;
   document.write('<frameset cols="' + cols + '"><frame id="left-frame" name="left-frame" src="' + document.URL + '" /><frame name="right-frame" src="" /></frameset>');
+  document.title = title;
   $("#left-frame").on("load", target_links);
 }
 
 chrome.storage.sync.get('settings', function(data)
 {
   settings = data.settings;
-  console.log("Loaded settings:");
-  console.log(settings);
+  console.log("Loaded settings:", settings);
   main();
 });
